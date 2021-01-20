@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-icon slot="start" size="large" name="arrow-back-outline"></ion-icon>
+    <ion-title>Tú Ubicación</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="full">
+
+  <div #map id="map">  </div>
+
+    <center>
+      <div class="map-options">
+        <ion-button size="small" color="secondary" (click)="showMyLocation();"><ion-icon slot="start" name="compass-outline"></ion-icon>Mi Ubicación</ion-button>
+      </div>
+    </center>
+
+</ion-content>

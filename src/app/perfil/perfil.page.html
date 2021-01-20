@@ -1,0 +1,61 @@
+<ion-header>
+
+  
+
+</ion-header>
+
+  
+
+<ion-content>
+
+  <div class="header-icons">
+    <ion-icon name="arrow-back-outline" size="large" style="margin-left: 1px; margin-top: 1px;" (click)="goHome();"></ion-icon>
+    <ion-icon *ngIf="modificar" name="checkbox-outline" style="float: right; font-size: 25px; margin-right: 2px; margin-top: 1px;"></ion-icon>
+  </div>
+
+
+  <div class="title">
+    <ion-label>Modificar Datos</ion-label>
+  </div>
+  
+
+  <div class="inputs">
+    <center>
+
+      <ion-item class="field">
+        <ion-icon name="person-outline" class="icon"></ion-icon>
+        <ion-input placeholder="Ingresar Nombre"></ion-input>
+      </ion-item>
+
+      <ion-item class="field">
+        <ion-icon name="mail-outline" class="icon"></ion-icon>
+        <ion-input placeholder="Ingresar Correo"></ion-input>
+      </ion-item>
+
+      <ion-item class="field">
+        <ion-icon name="lock-closed-outline" class="icon"></ion-icon>
+        <ion-input #password placeholder="Ingresar Contrasena" type="password"></ion-input>
+        <ion-icon *ngIf="show" name="eye-outline" slot="end" (click)="showPass();changeInput(password);"></ion-icon>
+        <ion-icon *ngIf="hide" name="eye-off-outline" slot="end" (click)="hidePass();changeInput(password);"></ion-icon>
+      </ion-item>
+
+      <ion-item class="field">
+        <ion-icon name="call-outline" class="icon"></ion-icon>
+        <ion-input placeholder="Ingresar Teléfono"></ion-input>
+      </ion-item>
+      
+      <br>
+
+      <ion-label class="label">
+        *Si modificas tu número de teléfono recibirás una llamada al realizar tu primer pedido para confirmar el nuevo número
+      </ion-label>
+      
+    </center>
+  </div>
+  
+
+
+  
+
+
+</ion-content>

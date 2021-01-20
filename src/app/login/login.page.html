@@ -1,0 +1,51 @@
+<ion-header>
+  
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  
+
+  <div class="logo">
+    <ion-img src="../../assets/images/logo.png"></ion-img>
+  </div>
+
+  <div class="title">
+    <ion-label>esExpress!</ion-label>
+  </div>
+  
+  <div class="slogan">
+    <ion-label>Lo que pidas es tuyo en solo unos <strong>minutos</strong></ion-label>
+  </div>
+  
+
+  <div class="inputs">
+    <center>
+      <ion-item class="field">
+        <ion-icon name="mail-outline" class="icon"></ion-icon>
+        <ion-input placeholder="Ingresar Correo"></ion-input>
+      </ion-item>
+
+      <ion-item class="field">
+        <ion-icon name="lock-closed-outline" class="icon"></ion-icon>
+        <ion-input placeholder="Ingresar Contrasena"></ion-input>
+      </ion-item>
+      
+    </center>
+  </div>
+  
+
+  <div class="registrarse">
+    <ion-label>¿No tienes cuenta? <strong class="registro" (click)="goSignUp();">Registrarse</strong></ion-label>
+  </div>
+
+  <div class="iniciar">
+    <ion-button expand="block" color="success" fill="clear" (click)="goHome();"> Iniciar </ion-button>
+  </div>
+
+  <div class="forgot">
+    <ion-label (click)="goRecover();">¿Olvidaste tu contraseña?</ion-label>
+  </div>
+
+
+</ion-content>

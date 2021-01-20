@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-icon slot="start" size="large" name="arrow-back-outline"></ion-icon>
+    <ion-title>Nueva Ubicación</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="inputs">
+
+    
+
+      <div class="container">
+        <ion-label slot="start" class="title"><strong>*Nombre De Tu Ubicación</strong></ion-label>
+        <center>
+          <ion-item lines="none" class="subcontainer">
+            <ion-label position="floating" class="label-container">Nombre</ion-label>
+            <ion-textarea rows="1" maxlength="20"></ion-textarea>
+          </ion-item>
+        </center>
+      </div>
+
+      <div class="container">
+        <ion-label slot="start" class="title"><strong>*Dirección Completa</strong></ion-label>
+        <center>
+          <ion-item lines="none" class="subcontainer">
+            <ion-label position="floating" class="label-container">Dirección</ion-label>
+            <ion-textarea maxlength="250" rows="3"></ion-textarea>
+          </ion-item>
+        </center>
+      </div>
+
+      <div class="container">
+        <ion-label slot="start" class="title"><strong>Indicaciones Al Repartidor (opcional)</strong></ion-label>
+        <center>
+          <ion-item lines="none" class="subcontainer">
+            <ion-label position="floating" class="label-container">Indicaciones</ion-label>
+            <ion-textarea maxlength="100" rows="2"></ion-textarea>
+          </ion-item>
+        </center>
+      </div>
+
+
+      
+      
+      <ion-item class="container">
+        <ion-label>Tipo: </ion-label>
+        <ion-select interface="popover">
+          <ion-select-option value="brown">Casa</ion-select-option>
+          <ion-select-option value="blonde">Trabajo</ion-select-option>
+          <ion-select-option value="black">Otro</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      
+  
+      
+
+
+  </div>
+
+  <center>
+    <ion-button class="nueva-ubicacion" expand="block" color="success" (click)="goMapa();">Siguiente</ion-button>
+  </center>
+
+
+
+</ion-content>

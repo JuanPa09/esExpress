@@ -1,0 +1,66 @@
+
+ion-content{
+    background-color: aliceblue;
+}
+
+.logo{
+    align-items: center;
+    height: 100px;
+    width: 100px;
+    display:block;
+    margin:auto;
+    margin-top: 20px;
+}
+
+.title{
+
+    font-size: 22px;
+    margin-top: 10px;
+    font-family: 'Potta One', cursive;
+    text-align: center;
+
+}
+
+.slogan{
+
+    margin-top: 20px;
+    font-family: 'Hachi Maru Pop', cursive;
+    text-align: center;
+}
+
+.icon{
+    margin-right: 15px;
+}
+
+.field{
+    margin-top: 30px;
+    border-radius: 5%;
+}
+
+.registrarse{
+    margin-top: 30px;
+    margin-bottom: 20px;
+    align-items: center;
+    text-align: center;
+}
+
+.registro{
+    color: #026fec;
+}
+
+.iniciar{
+    font-family: 'Hachi Maru Pop', cursive;
+}
+
+.forgot{
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+
