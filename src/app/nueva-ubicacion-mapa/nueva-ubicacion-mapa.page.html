@@ -1,7 +1,8 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-icon slot="start" size="large" name="arrow-back-outline"></ion-icon>
-    <ion-title>Tú Ubicación</ion-title>
+  <ion-toolbar class="ion-color" [style.background-color]="tcolor">
+    <ion-icon [ngStyle]="{'color':icolor}" slot="start" size="large" name="arrow-back-outline" (click)="goHome();"></ion-icon>
+    <ion-title [ngStyle]="{'color':icolor}">Tú Ubicación</ion-title>
+    <ion-button color="success" slot="end" *ngIf="markerOn" (click)="guardar();"><ion-icon name="save-outline"  ></ion-icon></ion-button>
   </ion-toolbar>
 </ion-header>
 
@@ -11,7 +12,7 @@
 
     <center>
       <div class="map-options">
-        <ion-button size="small" color="secondary" (click)="showMyLocation();"><ion-icon slot="start" name="compass-outline"></ion-icon>Mi Ubicación</ion-button>
+        <ion-button size="small" color="secondary" (click)="myLocation();"><ion-icon slot="start" name="compass-outline"></ion-icon>Mi Ubicación</ion-button>
       </div>
     </center>
 

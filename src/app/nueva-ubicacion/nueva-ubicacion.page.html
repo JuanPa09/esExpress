@@ -1,11 +1,13 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-icon slot="start" size="large" name="arrow-back-outline"></ion-icon>
-    <ion-title>Nueva Ubicación</ion-title>
-  </ion-toolbar>
+  
 </ion-header>
 
 <ion-content>
+
+  <ion-toolbar>
+    <ion-icon slot="start" size="large" name="arrow-back-outline" (click)="goHome();"></ion-icon>
+    <ion-title>Nueva Ubicación</ion-title>
+  </ion-toolbar>
 
   <div class="inputs">
 
@@ -60,9 +62,13 @@
 
   </div>
 
-  <center>
+  <!--<center>
     <ion-button class="nueva-ubicacion" expand="block" color="success" (click)="goMapa();">Siguiente</ion-button>
-  </center>
+  </center>-->
+
+  <ion-fab class="next-icon" slot="fixed">
+    <ion-fab-button color="success" (click)="goMapa();"><ion-icon name="arrow-forward-outline"></ion-icon></ion-fab-button>
+  </ion-fab>
 
 
 

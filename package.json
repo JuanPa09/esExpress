@@ -46,6 +46,7 @@
     "codelyzer": "^6.0.0",
     "cordova-androidx-build": "^1.0.4",
     "cordova-plugin-device": "^2.0.2",
+    "cordova-plugin-geolocation": "^4.1.0",
     "cordova-plugin-googlemaps": "^2.7.1",
     "cordova-plugin-ionic-keyboard": "^2.2.0",
     "cordova-plugin-ionic-webview": "^4.2.1",
@@ -76,7 +77,10 @@
       },
       "cordova-plugin-ionic-keyboard": {},
       "mx.ferreyra.callnumber": {},
-      "cordova-plugin-googlemaps": {}
+      "cordova-plugin-googlemaps": {},
+      "cordova-plugin-geolocation": {
+        "GPS_REQUIRED": "true"
+      }
     },
     "platforms": [
       "android"

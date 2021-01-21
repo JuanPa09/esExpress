@@ -14,7 +14,7 @@ export class NuevaUbicacionPage implements OnInit {
   }
 
   goHome(){
-    this.router.navigateByUrl('inicio')
+    this.router.navigateByUrl('ubicaciones')
   }
 
   goMapa(){

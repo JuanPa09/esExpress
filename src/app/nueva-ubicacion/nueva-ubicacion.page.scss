@@ -1,9 +1,13 @@
 
 
+.inputs{
+    padding-top: 10px;
+}
 
 .container{
 
-    margin-top: 20px;
+    
+    margin-bottom: 17%;
 
 }
 
@@ -38,4 +42,13 @@ ion-textarea{
     left: 0;
     bottom: 15px;
     right: 0;
+}
+
+.next-icon{
+    position: fixed;
+    left: auto;
+    right: 0;
+    bottom: 0;
+    margin-right: 10px;
+    margin-bottom: 10px;
 }

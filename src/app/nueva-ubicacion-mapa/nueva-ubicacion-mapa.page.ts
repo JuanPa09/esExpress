@@ -2,11 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { ViewChild, ElementRef } from '@angular/core'
 import { Router } from '@angular/router';
 import { mapStyle} from './custom-style-night'
+import { mapStyleDefault} from './custom-style-day'
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { AlertController } from '@ionic/angular';
+import { LoadingController } from '@ionic/angular';
+
+
+
 
 declare var google: any;
 
+var id,target,options
 
 
 @Component({
@@ -17,6 +23,9 @@ declare var google: any;
 export class NuevaUbicacionMapaPage implements OnInit {
 
   map:any;
+  markerOn:boolean = false
+  tcolor = "#ffffff"
+  icolor = "#000000"
 
   
 
@@ -31,7 +40,7 @@ export class NuevaUbicacionMapaPage implements OnInit {
     }
   ]
 
-  constructor(private router:Router,private alertController:AlertController,private geolocation: Geolocation) {
+  constructor(private router:Router,private alertController:AlertController,private geolocation: Geolocation,public loadingController: LoadingController) {
     
    }
 
@@ -49,12 +58,35 @@ export class NuevaUbicacionMapaPage implements OnInit {
         //Perimetro Abarcado
         this.addMarker(event.latLng);
       }else{
-        this.presentAlert();
+        this.presentAlert("Distancia No Cubierta","En este momento no cubrimos esta área");
       }
 
       //this.addMarker(event.latLng);
     });
 
+    //id = navigator.geolocation.watchPosition(this.success,null,{enableHighAccuracy:true,timeout:5000,maximumAge:0})
+  } 
+
+  myLocation(){
+    if (navigator.geolocation) {
+      this.presentLoading();
+      navigator.geolocation.getCurrentPosition(
+        (position: any) => {
+          const pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+          };
+          this.loadingController.dismiss();
+          if (this.getDistanceFromLatLonInKm(14.300959025882872,-90.78743884452985,pos.lat,pos.lng)<=3.3){
+            //Perimetro Abarcado
+            this.addMarker(pos);
+            this.map.panTo(pos);
+          }else{
+            this.presentAlert("Distancia No Cubierta","En este momento no cubrimos esta área");
+          }
+        }
+      );
+    }
   }
 
   getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
@@ -74,56 +106,15 @@ export class NuevaUbicacionMapaPage implements OnInit {
     return deg * (Math.PI/180)
   }
 
-
-  addMarkersTopMap(markers){
-    for(let marker of markers){
-      let position = new google.maps.LatLng(marker.latitude,marker.longitude);
-      let mapMarker = new google.maps.Marker({
-        position:position,
-        title:marker.title,
-        latitude:marker.latitude,
-        longitude:marker.longitude
-      });
-
-      mapMarker.setMap(this.map)
-      this.addInfoWindowToMarker(mapMarker);
-
-    }
-  }
-
-  addInfoWindowToMarker(marker){
-    let infoWindowContent =  `
-      <div id="content">
-      <h2 id="firstHeading" class"firstHeading">`+marker.title+`</h2>
-      <p>Latitude: `+marker.latitude+`</p>
-      <p>Longitude: `+marker.longitude+`</p>
-      </div>
-    `;
-
-    let infoWindow = new google.maps.InfoWindow({
-      content: infoWindowContent
-    })
-
-    marker.addListener('click',()=>{
-      this.closeAllInfoWindows();
-      infoWindow.open(this.map,marker)
-    });
-
-    this.infoWindows.push(infoWindow);
-  }
-
-  closeAllInfoWindows(){
-    for(let window of this.infoWindows){
-      window.close();
-    }
-  }
-  
-
   showMap(){
     const location = new google.maps.LatLng(14.318348507050816, -90.79645604374785)
     let style = []
     if(this.isNight()){
       style = mapStyle
+      this.tcolor = "#35394B"
+      this.icolor = "#ffffff"
+    }else{
+      style = mapStyleDefault
     }
     const options = {
       center:location,
@@ -135,20 +126,23 @@ export class NuevaUbicacionMapaPage implements OnInit {
     
 
     this.map = new google.maps.Map(this.mapRef.nativeElement,options)
-    //this.addMarkersTopMap(this.markers)
   }
 
 
   
 
   addMarker(location) {
+    this.markerOn = true
     const marker = new google.maps.Marker({
       position: location,
       map: this.map,
+      animation: google.maps.Animation.DROP
+      
     });
 
     marker.addListener("click", () => {
       marker.setMap(null)
+      this.markerOn = false
     });
 
     this.map.addListener("click", (event) => {
@@ -159,40 +153,22 @@ export class NuevaUbicacionMapaPage implements OnInit {
   }
   
 
-  showMyLocation(){
-    console.log("Cargando Ubicacion")
-    let lat:any;
-    let lng:any;
-    this.geolocation.getCurrentPosition().then((resp) => {
-      lat = resp.coords.latitude
-      lng = resp.coords.longitude
 
-      const pos = {
-        lat: lat,
-        lng: lng
-      };
-  
-      this.map.panTo(pos);
-  
-  
-      let markers:any = [
-        {
-          title:"Ubicacion Entrega",
-          latitude:lat,
-          longitude:lng
-        }
-      ]
-  
-      this.addMarkersTopMap(markers)
-      
+  success = (pos) =>{
+    var crd = pos.coords;
+    console.log(crd.latitude);
 
-     }).catch((error) => {
-       console.log('Error getting location', error);
-     });
+    const posi = {
+      lat: crd.latitude,
+      lng: crd.longitude
+    };
 
-    
-
+    this.addMarker(posi)
   }
+
+  
+
+
 
 
   /*
@@ -201,22 +177,43 @@ export class NuevaUbicacionMapaPage implements OnInit {
 
   isNight(){
     //Returns true if the time is between
-    //7pm to 5am
+    //6pm to 6am
     let time = new Date().getHours();
-    return (time > 5 && time < 19) ? false : true;
+    return (time > 6 && time < 18) ? false : true;
   }
 
-  async presentAlert() {
+  async presentAlert(titulo,texto) {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
-      header: 'Distancia No Cubierta',
-      message: 'En este momento no cubrimos esta área',
+      header: titulo,
+      message: texto,
       buttons: ['Aceptar']
     });
 
     await alert.present();
   }
 
+  async presentLoading() {
+    const loading = await this.loadingController.create({
+      cssClass: 'my-custom-class',
+      message: 'Buscando Tu ubicación...',
+      duration: 7000
+    });
+    await loading.present();
+
+    const { role, data } = await loading.onDidDismiss();
+    console.log('Loading dismissed!');
+  }
+
+
+  goHome(){
+    this.router.navigateByUrl('nueva-ubicacion')
+  }
+
+  guardar(){
+    this.presentAlert("Ubicación Guardada","Puedes encontrar tu nueva ubicación en \"Mis Ubicaciones\"")
+    this.router.navigateByUrl('inicio')
+  }
  
 
 

@@ -5,7 +5,7 @@ const routes: Routes = [
   
   {
     path: '',
-    redirectTo: 'nueva-ubicacion-mapa',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {

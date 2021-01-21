@@ -17,4 +17,8 @@ export class UbicacionesPage implements OnInit {
     this.router.navigateByUrl('inicio')
   }
 
+  goNueva(){
+    this.router.navigateByUrl('nueva-ubicacion')
+  }
+
 }
