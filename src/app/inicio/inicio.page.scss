@@ -5,11 +5,24 @@
     width: 25px;
 }
 
+.logo-header{
+    width: 40px;
+    height: 40px;
+}
+
 .title{
     float: left;
-    margin: 5px;
     font-family: 'Potta One', cursive;
     font-size: 15px;
+    margin-left: 5px;
+}
+
+
+.background-image{
+    background: #fff url('../../assets/images/fondo-inicio.PNG') no-repeat center center / cover;
+    width: 100%;
+    height: 100%;
+    opacity: 0.4;
 }
 
 .item-icon{
@@ -19,20 +32,29 @@
 
 .slogan{
     margin-top: 20px;
-    font-family: 'Hachi Maru Pop', cursive;
+    font-family: 'Fraunces', serif;
     text-align: center;
+    position: fixed;
+    bottom: 15px;
+    left: 0;
+    right: 0;
+    color: rgb(0, 0, 0);
+    font-size: 18px;
 }
 
+
+
 .logo{
-    height: 100px;
-    width: 100px;
-    margin:auto;
+    height: 20%;
+    width: 20%;
+    margin-top: 20px;
+    
 }
 
 
 .activities {
     position: absolute;
-    top: 40%;
+    top: 30%;
     width: auto;
     max-width: 100%;
     min-width: 100%;
@@ -42,10 +64,10 @@
    }
 
 .container{
-    background-color: rgba(148, 148, 148, 0.096);
-    border: 2px solid #0000003f;
+    background-color: rgb(255, 255, 255);
+    border: 2px solid #00000057;
     width: 80%;
-    border-radius: 4%;
+    border-radius: 10%;
     margin-bottom: 60px;
     padding-bottom: 5px;
     padding-top: 5px;
@@ -58,11 +80,21 @@
     margin-bottom: 10px;
 }
 
+
+.title-container{
+    margin-top: 5px;
+    font-size: 20px;
+    color: rgb(151, 41, 41);
+    font-family: 'Potta One', cursive;
+    
+}
+
 .label-container{
     display: block;
-    margin-top: 20px;
-    font-family: 'Hachi Maru Pop', cursive;
+    margin-top: 10px;
     text-align: center;
+    font-size: 15px;
+
 
 }
 

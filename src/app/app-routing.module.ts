@@ -5,7 +5,7 @@ const routes: Routes = [
   
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'realizarPedidos/tipo',
     pathMatch: 'full'
   },
   {
@@ -43,6 +43,19 @@ const routes: Routes = [
   {
     path: 'nueva-ubicacion-mapa',
     loadChildren: () => import('./nueva-ubicacion-mapa/nueva-ubicacion-mapa.module').then( m => m.NuevaUbicacionMapaPageModule)
+  },
+  {
+    path: 'loading-splash',
+    loadChildren: () => import('./loading-splash/loading-splash.module').then( m => m.LoadingSplashPageModule)
+  },
+  {
+    path: 'pedidos',
+    loadChildren: () => import('./pedidos/pedidos.module').then( m => m.PedidosPageModule)
+  },
+  {
+    path: 'realizarPedidos/tipo',
+    loadChildren: () => import('./realizarPedido/tipo-pedido/tipo-pedido.module').then( m => m.TipoPedidoPageModule)
+
   }
 ];
 

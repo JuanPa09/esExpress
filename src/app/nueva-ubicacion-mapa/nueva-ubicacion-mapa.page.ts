@@ -23,9 +23,13 @@ var id,target,options
 export class NuevaUbicacionMapaPage implements OnInit {
 
   map:any;
+  actualMarker:any
   markerOn:boolean = false
+  finishProcess:boolean = false
+  loadingOn = false
   tcolor = "#ffffff"
   icolor = "#000000"
+  locationActivated:boolean;
 
   
 
@@ -49,6 +53,7 @@ export class NuevaUbicacionMapaPage implements OnInit {
   }
 
   ionViewDidEnter(){
+
     this.showMap();
 
     this.map.addListener("click", (event) => {
@@ -68,7 +73,20 @@ export class NuevaUbicacionMapaPage implements OnInit {
   } 
 
   myLocation(){
+
+    /*this.diagnostic.isLocationEnabled().then((isEnabled) => {
+      if(!isEnabled){
+          //handle confirmation window code here and then call switchToLocationSettings
+        this.diagnostic.switchToLocationSettings();
+      }
+    })*/
+
     if (navigator.geolocation) {
+      if(this.actualMarker!=undefined){
+        this.actualMarker.setMap(null);
+      }
+      this.finishProcess = false
+      this.loadingOn = false
       this.presentLoading();
       navigator.geolocation.getCurrentPosition(
         (position: any) => {
@@ -76,16 +94,23 @@ export class NuevaUbicacionMapaPage implements OnInit {
             lat: position.coords.latitude,
             lng: position.coords.longitude,
           };
-          this.loadingController.dismiss();
+          
+          
+          if(this.loadingOn){
+            this.loadingController.dismiss();
+          }
+          
+          this.finishProcess = true;
           if (this.getDistanceFromLatLonInKm(14.300959025882872,-90.78743884452985,pos.lat,pos.lng)<=3.3){
             //Perimetro Abarcado
             this.addMarker(pos);
             this.map.panTo(pos);
+            this.map.setZoom(18)
           }else{
             this.presentAlert("Distancia No Cubierta","En este momento no cubrimos esta área");
           }
         }
-      );
+      ,(err)=>{this.presentAlert("Error De Ubicación","Verifica que tengas encendido el gps")});
     }
   }
 
@@ -129,8 +154,6 @@ export class NuevaUbicacionMapaPage implements OnInit {
   }
 
 
-  
-
   addMarker(location) {
     this.markerOn = true
     const marker = new google.maps.Marker({
@@ -149,10 +172,10 @@ export class NuevaUbicacionMapaPage implements OnInit {
       marker.setMap(null)
     });
 
+    this.actualMarker = marker
     this.markers.push(marker);
   }
   
-
 
   success = (pos) =>{
     var crd = pos.coords;
@@ -165,11 +188,6 @@ export class NuevaUbicacionMapaPage implements OnInit {
 
     this.addMarker(posi)
   }
-
-  
-
-
-
 
   /*
   Custom Map Style For Night
@@ -199,10 +217,13 @@ export class NuevaUbicacionMapaPage implements OnInit {
       message: 'Buscando Tu ubicación...',
       duration: 7000
     });
-    await loading.present();
-
-    const { role, data } = await loading.onDidDismiss();
-    console.log('Loading dismissed!');
+    if(!this.finishProcess){
+      await loading.present();
+      this.loadingOn = true
+      const { role, data } = await loading.onDidDismiss();
+      console.log('Loading dismissed!');
+    }
+    
   }
 
 

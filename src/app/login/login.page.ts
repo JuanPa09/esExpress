@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 @Component({
   selector: 'app-login',
@@ -8,9 +9,12 @@ import { Router } from '@angular/router';
 })
 export class LoginPage implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router:Router, private statusBar:StatusBar) { }
 
   ngOnInit() {
+    this.statusBar.overlaysWebView(false);
+    this.statusBar.backgroundColorByHexString('#ffffff');
+    this.statusBar.styleDefault();
   }
 
   goSignUp(){
@@ -22,7 +26,7 @@ export class LoginPage implements OnInit {
   }
 
   goHome(){
-    this.router.navigateByUrl('inicio')
+    this.router.navigateByUrl('loading-splash')
   }
 
 }

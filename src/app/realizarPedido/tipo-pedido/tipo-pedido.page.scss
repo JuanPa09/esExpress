@@ -1,0 +1,29 @@
+
+.options{
+    position: absolute;
+    top: 40%;
+    width: auto;
+    max-width: 100%;
+    min-width: 100%;
+    margin-top: -50px;
+    align-content: center;
+    align-items: center;
+}
+
+.container{
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 40%;
+    width: 100%;
+    
+}
+
+.subcontainer{
+    float: left;
+    background-color: rgba(205, 205, 212, 0.582);
+    width: 35%;
+    height: 50px;
+    margin-right: 5%;
+    margin-left: 5%;
+    align-content: center;
+vertical-align: middle;}
