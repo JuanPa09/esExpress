@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import {DataService} from '../dataManagement'
 
 @Component({
   selector: 'app-nueva-ubicacion',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class NuevaUbicacionPage implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router:Router, private data:DataService) { }
 
   ngOnInit() {
   }
@@ -18,6 +19,7 @@ export class NuevaUbicacionPage implements OnInit {
   }
 
   goMapa(){
+    this.data.setTipoMapa(0);
     this.router.navigateByUrl('nueva-ubicacion-mapa')
   }
 

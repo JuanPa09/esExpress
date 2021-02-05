@@ -3,12 +3,26 @@
     width: 30px;
 }
 
+.info{
+    margin-top: 5%;
+    padding: 2%;
+}
+
+.info ion-label{
+    font-size: small;
+    text-align: center;
+    opacity: 60%;
+    
+}
+
 .mis-ubicaciones{
-    margin-top: 50px;
+    margin-top: 5%;
 }
 
 .ubicacion-container{
     margin-bottom: 20px;
+    --ripple-color: rgb(20, 165, 218);
+    
 }
 
 .ubicacion-icono{
@@ -41,3 +55,4 @@
     left: 20%;
     right: 20%;
 }
+

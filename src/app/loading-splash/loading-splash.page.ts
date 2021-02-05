@@ -24,20 +24,27 @@ export class LoadingSplashPage implements OnInit {
     const loadingAnimation = this.animationCtrl.create('loading-animation')
       .addElement(this.imagen.nativeElement)
       .duration(1500)
-      .fromTo('transform', 'rotate(0deg)', 'rotate(360deg)')
+      .iterations(1)
       .keyframes([
-        { offset: 0, transform: 'scale(1)', opacity: '1' },
-        { offset: 0.5, transform: 'scale(1.5)', opacity: '0.5'},
-        { offset: 1, transform: 'scale(1)', opacity: '1'}
+        { offset: 0, transform: 'rotate(0)' },
+        { offset: 0.5, transform: 'rotate(350deg)' },
+        { offset: 1, transform: 'rotate(360deg)' }
       ])
       
+     
+    
 
     // Don't forget to start the animation!
     await loadingAnimation.play();
+    await this.timeout(500)
     this.router.navigateByUrl('inicio')
 
     
     
+  }
+
+  async timeout(ms) { //pass a time in milliseconds to this function
+    return new Promise(resolve => setTimeout(resolve, ms));
   }
 
  

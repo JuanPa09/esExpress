@@ -14,6 +14,12 @@ import { CallNumber } from '@ionic-native/call-number/ngx';
 import { GoogleMaps } from "@ionic-native/google-maps"
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 
+
+import { LocationAccuracy } from '@ionic-native/location-accuracy/ngx';
+import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
+import { Diagnostic } from '@ionic-native/diagnostic/ngx';
+import {Keyboard} from '@ionic-native/keyboard/ngx'
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -24,6 +30,10 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
     CallNumber,
     GoogleMaps,
     Geolocation,
+    LocationAccuracy,
+    AndroidPermissions,
+    Diagnostic,
+    Keyboard,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

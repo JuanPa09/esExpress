@@ -3,13 +3,16 @@ ion-content{
     background-color: aliceblue;
 }
 
+
+.logo-container{
+    width: 100%;
+}
+
 .logo{
-    align-items: center;
-    height: 100px;
-    width: 100px;
-    display:block;
-    margin:auto;
-    margin-top: 20px;
+    
+    width: 40%;
+    height: auto;
+    margin-top: 15%;
 }
 
 .title{
@@ -23,13 +26,17 @@ ion-content{
 
 .slogan{
 
-    margin-top: 20px;
     font-family: 'Hachi Maru Pop', cursive;
     text-align: center;
+    margin-top: 10%;
 }
 
 .icon{
     margin-right: 15px;
+}
+
+.inputs{
+    margin-top: 28%;
 }
 
 .field{

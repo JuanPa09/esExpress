@@ -5,7 +5,7 @@ const routes: Routes = [
   
   {
     path: '',
-    redirectTo: 'realizarPedidos/tipo',
+    redirectTo: 'inicio',
     pathMatch: 'full'
   },
   {
@@ -53,9 +53,20 @@ const routes: Routes = [
     loadChildren: () => import('./pedidos/pedidos.module').then( m => m.PedidosPageModule)
   },
   {
-    path: 'realizarPedidos/tipo',
-    loadChildren: () => import('./realizarPedido/tipo-pedido/tipo-pedido.module').then( m => m.TipoPedidoPageModule)
-
+    path: 'start-splash',
+    loadChildren: () => import('./start-splash/start-splash.module').then( m => m.StartSplashPageModule)
+  },
+  {
+    path: 'realizar-pedido',
+    loadChildren: () => import('./realizar-pedido/realizar-pedido.module').then( m => m.RealizarPedidoPageModule)
+  },
+  {
+    path: 'detalle-pedido',
+    loadChildren: () => import('./detalle-pedido/detalle-pedido.module').then( m => m.DetallePedidoPageModule)
+  },
+  {
+    path: 'nuevo-pedido',
+    loadChildren: () => import('./nuevo-pedido/nuevo-pedido.module').then( m => m.NuevoPedidoPageModule)
   }
 ];
 

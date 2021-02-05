@@ -1,0 +1,40 @@
+.body{
+    padding: 2%;
+    padding-top: 5%;
+}
+
+.container{
+    margin-bottom: 5%;
+}
+
+.titulo{
+    font-size: 15px;
+    font-family: 'Comfortaa', cursive;
+}
+
+.content{
+    margin-top: 3%;
+    width: 100%;
+    padding-left: 3%;
+    padding-right: 3%;
+    text-align:left;
+    font-family: 'Arial';
+    font-size: 15px;
+    opacity: 60%;
+}
+
+.icon{
+    width: 18px;
+}
+
+
+.confirmacion{
+    position: fixed;
+    bottom: 10px;
+    left: 20%;
+    right: 20%;
+}
+
+.confirmacion{
+    --border-radius:25px;
+}

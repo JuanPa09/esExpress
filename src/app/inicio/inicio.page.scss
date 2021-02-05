@@ -1,20 +1,41 @@
 .icono{
     float: right;
-    margin: 5px;
     height: 25px;
     width: 25px;
 }
 
 .logo-header{
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
+}
+
+.header {
+    position: fixed;
+    width: 100%;
+    margin-top: 25px;
+    background-color: transparent;
+    z-index: 2;
+    padding: 10px;
+}
+
+
+
+.c{
+    width: 20px;
+}
+
+.icon{
+    width: 20px;
 }
 
 .title{
     float: left;
-    font-family: 'Potta One', cursive;
-    font-size: 15px;
+    font-family: 'Rubik', sans-serif;
+    font-size: 20px;
     margin-left: 5px;
+    margin-top: 20%;
+    z-index: 2;
+    filter: brightness(100%);
 }
 
 
@@ -38,8 +59,8 @@
     bottom: 15px;
     left: 0;
     right: 0;
-    color: rgb(0, 0, 0);
     font-size: 18px;
+    font-family: 'Comfortaa', cursive;
 }
 
 
@@ -53,24 +74,33 @@
 
 
 .activities {
-    position: absolute;
+    position: fixed;
     top: 30%;
+    bottom: 30%;
     width: auto;
     max-width: 100%;
     min-width: 100%;
     margin-top: -50px;
-    align-content: center;
-    align-items: center;
+
    }
 
-.container{
-    background-color: rgb(255, 255, 255);
-    border: 2px solid #00000057;
+
+
+.container-inicio{
+    border: 1px solid #ff000067;
     width: 80%;
-    border-radius: 10%;
-    margin-bottom: 60px;
+    height: 120px;
+    border-radius: 25px;
+    margin-top: 5%;
+    margin-bottom: 5%;
     padding-bottom: 5px;
     padding-top: 5px;
+
+}
+
+.subcontainer{
+    padding: 30px;
+    
 }
 
 .image-container{
@@ -84,8 +114,7 @@
 .title-container{
     margin-top: 5px;
     font-size: 20px;
-    color: rgb(151, 41, 41);
-    font-family: 'Potta One', cursive;
+    font-family: 'Comfortaa', cursive;
     
 }
 
@@ -94,9 +123,68 @@
     margin-top: 10px;
     text-align: center;
     font-size: 15px;
+    font-family: 'Comfortaa', cursive;
 
 
 }
+
+
+.categories {
+    padding: 1%;
+  }
+  
+.category {
+width: calc(100% / 2);
+float: left;
+position: relative;
+padding-bottom: calc(100% / 2);
+display: flex;
+justify-content: center;
+}
+  
+.category .content {
+    width: calc(100% - 15%);
+    height: calc(100% - 15%);
+    margin: 1%;
+    padding: 20%;
+    position: absolute;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.text{
+    position: absolute;
+    top: calc(100% - 15%);
+    width: 100%;
+    margin-top: 3%;
+    display: flex;
+    justify-content: center;
+    font-family: 'Comfortaa', cursive;
+    font-size: 1rem;
+    
+}
+
+
+
+
+
+/*.col-container{
+    color: rgb(73, 226, 43);
+    margin: 5%;
+    background-color: brown;
+    border-color: cadetblue;
+    border-width: 10px;
+    width: 40%;
+    padding-bottom: 40%;
+}
+
+.img-col-container{
+}*/
+
 
 /*svg{
     display: block;

@@ -1,6 +1,32 @@
 // Ionic Variables and Theming. For more info, please see:
 // http://ionicframework.com/docs/theming/
 
+
+/* ********************************* Variables De Color **********************************/
+
+
+/*Light Mode*/
+$inicio-container-light: #ffffff;
+$inicio-circleContainer-light: #ffffff;
+$title-container-light:rgb(151, 41, 41);
+$category-border-color-light:rgb(102, 101, 101);
+
+/*Dark Mode*/
+$inicio-container-dark: #26292c;
+$title-container-dark:rgb(230, 16, 16);
+
+$inicio-circleContainerDark-android:#26292c;
+$inicio-circleContainerDark-ios:#000000;
+$category-border-color-dark:rgb(182, 182, 182);
+
+
+
+
+
+/* ***************************************************************************************/
+
+
+
 /** Ionic CSS Variables **/
 :root {
   /** primary **/
@@ -52,14 +78,14 @@
   --ion-color-danger-tint: #ed576b;
 
   /** dark **/
-  /*
+  
   --ion-color-dark: #222428;
   --ion-color-dark-rgb: 34, 36, 40;
   --ion-color-dark-contrast: #ffffff;
   --ion-color-dark-contrast-rgb: 255, 255, 255;
   --ion-color-dark-shade: #1e2023;
   --ion-color-dark-tint: #383a3e;
-  */
+  
 
   /** medium **/
   --ion-color-medium: #92949c;
@@ -76,16 +102,94 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+
 }
 
-@media (prefers-color-scheme: dark) {
+
+/*
+Light Theme Css Classes
+*/
+
+body [color-theme="light"] {
+
+  /** My CSS Classes **/
+
+  .container-inicio{
+    background-color:$inicio-container-light;
+  }
+
+  .title-container{
+    color: $title-container-light;
+  }
+
+  .inicio-imgCategory{
+    //filter: contrast(50%) invert(0);
+  }
+
+  .category .content{
+    background-color: $inicio-circleContainer-light;
+    border:2px solid $category-border-color-light;
+  }
+
+}
+
+.ios body[color-theme="light"]{
+
+  /** My CSS Classes **/
+
+  .container-inicio{
+    background-color:$inicio-container-light;
+  }
+
+  .title-container{
+    color: $title-container-light;
+  }
+
+  .inicio-imgCategory{
+    //filter: contrast(50%) invert(0);
+  }
+
+  .category .content{
+    background-color: $inicio-circleContainer-light;
+    border:2px solid $category-border-color-light;
+  }
+
+}
+
+.md body[color-theme="light"]{
+
+  /** My CSS Classes **/
+
+  .container-inicio{
+    background-color:$inicio-container-light;
+  }
+
+  .title-container{
+    color: $title-container-light;
+  }
+
+  .inicio-imgCategory{
+    //filter: contrast(50%) invert(0);
+  }
+
+  .category .content{
+    background-color: $inicio-circleContainer-light;
+    border:2px solid $category-border-color-light;
+  }
+
+}
+
+
+
+/*@media (prefers-color-scheme: dark) {*/
   /*
    * Dark Colors
    * -------------------------------------------
    */
 
-  body {
-    /*
+  body [color-theme="dark"] {
+    
     --ion-color-primary: #428cff;
     --ion-color-primary-rgb: 66,140,255;
     --ion-color-primary-contrast: #ffffff;
@@ -149,7 +253,22 @@
     --ion-color-light-shade: #1e2023;
     --ion-color-light-tint: #383a3e;
 
-    */
+
+    /** My CSS Classes **/
+
+    .container-inicio{
+      background-color:$inicio-container-dark;
+    }
+
+    .title-container{
+      color: $title-container-dark;
+    }
+    
+    .inicio-imgCategory{
+      //filter: contrast(10%) invert(0);
+    }
+
+    
   }
 
   /*
@@ -157,8 +276,8 @@
    * -------------------------------------------
    */
 
-  .ios body {
-    /*
+  .ios body[color-theme="dark"]  {
+    
     --ion-background-color: #000000;
     --ion-background-color-rgb: 0,0,0;
 
@@ -189,7 +308,28 @@
 
     --ion-item-background: #000000;
 
-    --ion-card-background: #1c1c1d;*/
+    --ion-card-background: #1c1c1d;
+
+
+    /** My CSS Classes **/
+
+    .container-inicio{
+      background-color:$inicio-container-dark;
+    }
+
+    .title-container{
+      color: $title-container-dark;
+    }
+
+    .inicio-imgCategory{
+      //filter: contrast(10%) invert(0);
+    }
+
+    .category .content{
+      background-color: $inicio-circleContainerDark-ios;
+      border:2px solid $category-border-color-dark;
+    }
+    
   }
 
 
@@ -198,44 +338,65 @@
    * -------------------------------------------
    */
 
-  .md body {
-    /*
-    --ion-background-color: #121212;
-    --ion-background-color-rgb: 18,18,18;
+  .md body[color-theme="dark"] {
+    
+    --ion-background-color: #26292c;
+    --ion-background-color-rgb: 38,41,44;
 
     --ion-text-color: #ffffff;
     --ion-text-color-rgb: 255,255,255;
 
     --ion-border-color: #222222;
 
-    --ion-color-step-50: #1e1e1e;
-    --ion-color-step-100: #2a2a2a;
-    --ion-color-step-150: #363636;
-    --ion-color-step-200: #414141;
-    --ion-color-step-250: #4d4d4d;
-    --ion-color-step-300: #595959;
-    --ion-color-step-350: #656565;
-    --ion-color-step-400: #717171;
-    --ion-color-step-450: #7d7d7d;
-    --ion-color-step-500: #898989;
-    --ion-color-step-550: #949494;
-    --ion-color-step-600: #a0a0a0;
-    --ion-color-step-650: #acacac;
-    --ion-color-step-700: #b8b8b8;
-    --ion-color-step-750: #c4c4c4;
-    --ion-color-step-800: #d0d0d0;
-    --ion-color-step-850: #dbdbdb;
-    --ion-color-step-900: #e7e7e7;
-    --ion-color-step-950: #f3f3f3;
+    --ion-color-step-50: #313437;
+  --ion-color-step-100: #3c3e41;
+  --ion-color-step-150: #47494c;
+  --ion-color-step-200: #515456;
+  --ion-color-step-250: #5c5f61;
+  --ion-color-step-300: #67696b;
+  --ion-color-step-350: #727476;
+  --ion-color-step-400: #7d7f80;
+  --ion-color-step-450: #88898b;
+  --ion-color-step-500: #939496;
+  --ion-color-step-550: #9d9fa0;
+  --ion-color-step-600: #a8a9ab;
+  --ion-color-step-650: #b3b4b5;
+  --ion-color-step-700: #bebfc0;
+  --ion-color-step-750: #c9caca;
+  --ion-color-step-800: #d4d4d5;
+  --ion-color-step-850: #dedfdf;
+  --ion-color-step-900: #e9eaea;
+  --ion-color-step-950: #f4f4f4;
 
-    --ion-item-background: #1e1e1e;
 
-    --ion-toolbar-background: #1f1f1f;
+    --ion-statusbar-background:#be1f1f;
+    
 
-    --ion-tab-bar-background: #1f1f1f;
+    --ion-toolbar-background: #2d3033;
 
-    --ion-card-background: #1e1e1e;
+    --ion-tab-bar-background: #2d3033;
 
-    */
+    --ion-card-background: #313437;
+
+
+    /** My CSS Classes **/
+
+    .container-inicio{
+      background-color:$inicio-container-dark;
+    }
+
+    .title-container{
+      color: $title-container-dark;
+    }
+
+    .inicio-imgCategory{
+      //filter: contrast(10%) invert(0);
+    }
+
+    .category .content{
+      background-color: $inicio-circleContainerDark-android;
+      border:2px solid $category-border-color-dark;
+    }
+    
   }
-}
+/*}*/

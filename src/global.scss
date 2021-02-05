@@ -24,3 +24,19 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+.inicio-action-sheet .action-sheet-group {
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+  }
+
+.ripple-parent {
+  position: relative;
+  overflow: hidden;
+}  
+
+ion-back-button{
+  color:rgb(207, 60, 79);
+}
+
+

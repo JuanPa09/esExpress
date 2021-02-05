@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Resumen Pedido</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="body">
+
+    <div class="container">
+      <div class="titulo"><ion-label>Nombre:</ion-label></div>
+      <div class="content"><ion-label>{{titulo}}</ion-label></div>
+    </div>
+
+    <div class="container">
+      <div class="titulo"><ion-label>Dirección:</ion-label></div>
+      <div class="content"><ion-label></ion-label>{{direccion}}</div>
+    </div>
+
+    <div class="container">
+      <div class="titulo"><ion-label>Teléfono:</ion-label></div>
+      <div class="content"><ion-label>{{telefono}}</ion-label></div>
+    </div>
+
+    <div class="container">
+      <div class="titulo"><ion-label>Descripción Pedido:</ion-label></div>
+      <div class="content"><ion-label style="white-space: pre-wrap;">{{descripcion}}</ion-label></div>
+    </div>
+
+    <div class="container">
+      <div class="titulo"><ion-label>Categoria:</ion-label></div>
+      <div class="content"><ion-label>{{categoria}}</ion-label></div>
+    </div>
+
+    <div class="container">
+      <div class="titulo"><ion-label>Rango De Precio</ion-label></div>
+      <div class="content"><ion-label>{{rango}}</ion-label></div>
+    </div>
+
+    <div class="container">
+      <div class="titulo"><ion-label>Ubicación Producto</ion-label></div>
+      <div class="content"><ion-label>{{ubicacion}}</ion-label></div>
+    </div>
+
+    
+
+    
+
+    <center>
+      <ion-button class="confirmacion" color="danger" (click)="confirmar();">Confirmar</ion-button>
+    </center>
+
+    
+    
+
+
+
+
+  </div>
+
+</ion-content>

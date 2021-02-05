@@ -1,22 +1,16 @@
 <ion-header>
-
-  
-
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-icon *ngIf="modificar" name="checkbox-outline" style="float: right; font-size: 25px; margin-right: 2px; margin-top: 1px;"></ion-icon>
+    <ion-title>Modificar Datos</ion-title>
+  </ion-toolbar>
 </ion-header>
 
   
 
 <ion-content>
-
-  <div class="header-icons">
-    <ion-icon name="arrow-back-outline" size="large" style="margin-left: 1px; margin-top: 1px;" (click)="goHome();"></ion-icon>
-    <ion-icon *ngIf="modificar" name="checkbox-outline" style="float: right; font-size: 25px; margin-right: 2px; margin-top: 1px;"></ion-icon>
-  </div>
-
-
-  <div class="title">
-    <ion-label>Modificar Datos</ion-label>
-  </div>
   
 
   <div class="inputs">

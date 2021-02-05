@@ -15,6 +15,11 @@ export class LoginPage implements OnInit {
     this.statusBar.overlaysWebView(false);
     this.statusBar.backgroundColorByHexString('#ffffff');
     this.statusBar.styleDefault();
+    
+    if(localStorage.getItem("tema")==""){
+      localStorage.setItem("tema","light")
+    }
+
   }
 
   goSignUp(){

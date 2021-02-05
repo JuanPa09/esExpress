@@ -1,0 +1,86 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Nuevo Pedido</ion-title>
+    <ion-img slot="end" src="../../assets/images/cajub-nombre.png" style="width: 20%; margin-right: 5px;"></ion-img>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  
+
+
+  <div class="body">
+
+    <div class="container">
+      <div class="titleContainer">
+        <img class="icon" src="../../assets/images/write-icon.png" /> <ion-label slot="start" class="title">Especifícanos Tu Pédido.</ion-label> <ion-icon class="info" name="information-circle" (click)="infoPedidoAlert();" color="primary"></ion-icon>
+      </div>
+      <center>
+        <ion-item lines="none" id="marco" class="subcontainer">
+          <ion-label position="floating" class="label-container">Mi Pedido:</ion-label>
+          <ion-textarea maxlength="250" rows="6" (ionFocus)="textFocus();" (ionBlur)="textUnFocus();"></ion-textarea>
+        </ion-item>
+      </center>
+    </div>
+  
+  
+    <div class="container">
+      <div class="titleContainer">
+        <img class="icon" src="../../assets/images/money-icon.png" /> <ion-label class="title">Especificar Rango De Precios:</ion-label> <ion-icon class="info" name="information-circle" (click)="infoRangeAlert();" color="primary"></ion-icon>
+      </div>
+        <center>
+          <ion-radio-group value="noEsp" style="width: 100%;">
+    
+            <ion-item lines="none">
+              <ion-label class="option">No Especificar</ion-label>
+              <ion-radio slot="start" value="noEsp" (click)="minNoEsp();" color="danger"></ion-radio>
+            </ion-item>
+
+            <ion-item lines="none">
+              <ion-label class="option">Especificar</ion-label>
+              <ion-radio slot="start" value="esp" (click)="minEsp();"></ion-radio>
+            </ion-item>
+    
+          </ion-radio-group>
+        </center>    
+  
+    </div>
+  
+    <ion-item *ngIf="Rango" >
+        <ion-range #rango dualKnobs="true" min="0" max="500" [(ngModel)]="rangeValues" (ionChange)="cambio($event.target.value)"  pin="true" >
+          <ion-label  slot="start" class="option">{{rango.value.lower}}</ion-label>
+          <ion-label slot="end" class="option">{{rango.value.upper}}</ion-label>
+        </ion-range>
+    </ion-item>
+
+    <div class="container">
+      <div class="titleContainer">
+        <img class="icon" src="../../assets/images/cajup-logo.png" /> <ion-label class="title">¿Ubicación Específica?</ion-label> <ion-icon class="info" name="information-circle" (click)="infoMarcarAlert();" color="primary"></ion-icon>
+      </div>
+      <ion-radio-group #map value="no">
+        <ion-item lines="none">
+          <ion-label class="option">No</ion-label>
+          <ion-radio slot="start" value="no" color="danger"></ion-radio>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label class="option">Sí</ion-label>
+          <ion-radio slot="start" value="si"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </div>
+  
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="next(map.value)">
+      <ion-fab-button color="success">
+        <ion-icon name="arrow-forward-circle"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+      
+        
+
+  </div>
+
+</ion-content>
